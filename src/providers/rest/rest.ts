@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class RestProvider {
 
-  private apiUrl = 'https://raw.githubusercontent.com/TrimA74/TPDevHybride/master/src/data.json';
+  private apiUrl = 'http://localhost:8100/assets/data.json';
 
   constructor(public http: HttpClient) {
     console.log('Hello RestProvider Provider');
