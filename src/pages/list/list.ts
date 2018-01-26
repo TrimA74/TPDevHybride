@@ -27,6 +27,7 @@ export class ListPage {
 
 
   itemTapped(event, item) {
+    console.log(item);
     this.navCtrl.push(ItemDetailsPage, {
       item: item
     });

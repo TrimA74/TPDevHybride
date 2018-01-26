@@ -35,7 +35,7 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Connexion', component: LoginPage },
+      { title: 'Deconnexion', component: LoginPage },
       { title: 'My First List', component: ListPage }
     ];
 

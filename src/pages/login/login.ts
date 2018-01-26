@@ -14,11 +14,13 @@ export class LoginPage {
 
 
   private users:any;
+  private isConnected: boolean;
 
-  constructor(public navController : NavController, public navParams: NavParams, public RestProvider : RestProvider) {
+  constructor(public navController : NavController, public navParams: NavParams, public restProvider : RestProvider) {
 
-    this.RestProvider.getData().then((data) => {
+    this.restProvider.getData().then((data) => {
      this. users = data;
+     this.isConnected = false;
     });
 
 
@@ -31,7 +33,7 @@ export class LoginPage {
       console.log(password);
       if(user.name == username && user.password == password)
       {
-        console.log('wtf');
+        this.isConnected = true;
         this.navController.setRoot(ListPage);
       }
 
