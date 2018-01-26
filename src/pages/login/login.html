@@ -3,36 +3,36 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Login</ion-title>
+    <ion-title class="left">Login</ion-title>
+    <ion-icon name="contact" class="right avatar"></ion-icon>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content class="login" padding>
+<ion-content class="login"  padding>
 
   <div class="login-description">
     <h3>Bienvenue sur MyApp !</h3>
     <p>Pour pouvoir profiter de l'application, il vous est nécessaire de vous connecter en remplissants les champs ci-dessous.</p>
   </div>
 
-  <ion-icon name="contact"></ion-icon>
+  <div class="login-form">
+    <ion-list>
 
-  <ion-list>
+      <ion-item class="field">
+        <ion-input placeholder="Username" type="text"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label fixed>Username</ion-label>
-      <ion-input type="text" value=""></ion-input>
-    </ion-item>
+      <ion-item class="field">
+        <ion-input placeholder="password" type="password"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label fixed>Password</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
+    </ion-list>
 
-  </ion-list>
+    <div>
+      <button ion-button="">Sign In</button>
+    </div>
 
-  <div>
-    <button ion-button="">Sign In</button>
   </div>
 
 </ion-content>
