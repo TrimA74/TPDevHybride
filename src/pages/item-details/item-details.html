@@ -3,7 +3,7 @@
     <button menuToggle *ngIf="!selectedItem">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Item Details</ion-title>
+    <ion-title>{{selectedUser.name}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,24 +11,24 @@
 
 
 
-    <h3 text-center *ngIf="selectedUser">
-      <img src={{selectedUser.picture}} alt="user's image">
+    <ion-title text-center *ngIf="selectedUser">
+      <img src={{selectedUser.picture}} alt="user's image" id="profile-img">
       {{selectedUser.name}}
-    </h3>
-    <ul>
-      <li *ngIf="selectedUser.age">
+    </ion-title>
+    <ion-list class="list">
+      <ion-item *ngIf="selectedUser.age">
         age: {{selectedUser.age}}
-      </li>
-      <li *ngIf="selectedUser.gender">
+      </ion-item>
+      <ion-item *ngIf="selectedUser.gender">
         gender: {{selectedUser.gender}}
-      </li>
-      <li *ngIf="selectedUser.company">
+      </ion-item>
+      <ion-item *ngIf="selectedUser.company">
         company: {{selectedUser.company}}
-      </li>
-      <li *ngIf="selectedUser.address">
+      </ion-item>
+      <ion-item *ngIf="selectedUser.address">
         address: {{selectedUser.address}}
-      </li>
-    </ul>
+      </ion-item>
+    </ion-list>
 
   <ion-card class="card">
     <p *ngIf="selectedUser">
@@ -37,11 +37,11 @@
   </ion-card>
 
   <ion-card class="card">
-    <ul *ngIf="selectedUser.friends">
-      <h4>friends:</h4>
-      <li *ngFor="let friend of selectedUser.friends">
+    <ion-list *ngIf="selectedUser.friends">
+      <ion-card-title>Friends:</ion-card-title>
+      <ion-item *ngFor="let friend of selectedUser.friends">
         {{friend.name}}
-      </li>
-    </ul>
+      </ion-item>
+    </ion-list>
   </ion-card>
 </ion-content>
