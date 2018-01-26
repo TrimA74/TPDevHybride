@@ -7,13 +7,41 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="item-details">
 
-  <h3 text-center *ngIf="selectedUser">
-    <img text-center src={{selectedUser.picture}} alt="user's image">
-    {{selectedUser.name}}
-  </h3>
-  <p *ngIf="selectedUser">
-    {{selectedUser.about}}
-  </p>
+
+
+    <h3 text-center *ngIf="selectedUser">
+      <img src={{selectedUser.picture}} alt="user's image">
+      {{selectedUser.name}}
+    </h3>
+    <ul>
+      <li *ngIf="selectedUser.age">
+        age: {{selectedUser.age}}
+      </li>
+      <li *ngIf="selectedUser.gender">
+        gender: {{selectedUser.gender}}
+      </li>
+      <li *ngIf="selectedUser.company">
+        company: {{selectedUser.company}}
+      </li>
+      <li *ngIf="selectedUser.address">
+        address: {{selectedUser.address}}
+      </li>
+    </ul>
+
+  <ion-card class="card">
+    <p *ngIf="selectedUser">
+      {{selectedUser.about}}
+    </p>
+  </ion-card>
+
+  <ion-card class="card">
+    <ul *ngIf="selectedUser.friends">
+      <h4>friends:</h4>
+      <li *ngFor="let friend of selectedUser.friends">
+        {{friend.name}}
+      </li>
+    </ul>
+  </ion-card>
 </ion-content>
