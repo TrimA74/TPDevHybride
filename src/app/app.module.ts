@@ -24,7 +24,7 @@ import { RestProvider } from '../providers/rest/rest';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
