@@ -12,28 +12,16 @@ import { RestProvider } from '../../providers/rest/rest';
   templateUrl: 'list.html'
 })
 export class ListPage {
-  icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
-
 
   private users:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public restProvider: RestProvider) {
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
 
-    this.items = [];
-    for(let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
     this.restProvider.getData().then((data) => {
       this.users = data;
     });
+
   }
 
 
