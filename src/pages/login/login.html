@@ -1,10 +1,7 @@
+<script src="login.ts"></script>
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title class="left">Login</ion-title>
-    <ion-icon name="contact" class="right avatar"></ion-icon>
+    <ion-title>Login</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -20,17 +17,17 @@
     <ion-list>
 
       <ion-item class="field">
-        <ion-input placeholder="Username" type="text"></ion-input>
+        <ion-input #username placeholder="Username" type="text"></ion-input>
       </ion-item>
 
       <ion-item class="field">
-        <ion-input placeholder="password" type="password"></ion-input>
+        <ion-input #password placeholder="password" type="password"></ion-input>
       </ion-item>
 
     </ion-list>
 
     <div>
-      <button ion-button="">Sign In</button>
+      <button ion-button="" (click)="doConnection(username.value, password.value)">Sign In</button>
     </div>
 
   </div>
