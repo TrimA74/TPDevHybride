@@ -2,7 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 
 
 import { RestProvider } from '../../providers/rest/rest';
-import { Nav } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { ListPage } from '../list/list';
 
@@ -12,11 +12,10 @@ import { ListPage } from '../list/list';
 })
 export class LoginPage {
 
-  @ViewChild(Nav) nav: Nav;
 
   private users:any;
 
-  constructor(public RestProvider : RestProvider) {
+  constructor(public navController : NavController, public navParams: NavParams, public RestProvider : RestProvider) {
 
     this.RestProvider.getData().then((data) => {
      this. users = data;
@@ -29,11 +28,11 @@ export class LoginPage {
   doConnection(username, password) {
     console.log('1');
     this.users.forEach((user) => {
-      console.log(user);
-      if(user.name == username && user.pasword == password)
+      console.log(password);
+      if(user.name == username && user.password == password)
       {
         console.log('wtf');
-        this.nav.setRoot(ListPage);
+        this.navController.setRoot(ListPage);
       }
 
 
