@@ -8,18 +8,31 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="login" padding>
 
-  <h3>Welcome to your first Ionic app!</h3>
+  <div class="login-description">
+    <h3>Bienvenue sur MyApp !</h3>
+    <p>Pour pouvoir profiter de l'application, il vous est nécessaire de vous connecter en remplissants les champs ci-dessous.</p>
+  </div>
 
-  <p>
-    This starter project is our way of helping you get a functional app running in record time.
-  </p>
-  <p>
-    Follow along on the tutorial section of the Ionic docs!
-  </p>
-  <p>
-    <button ion-button color="primary" menuToggle>Toggle Menu</button>
-  </p>
+  <ion-icon name="contact"></ion-icon>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label fixed>Username</ion-label>
+      <ion-input type="text" value=""></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Password</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div>
+    <button ion-button="">Sign In</button>
+  </div>
 
 </ion-content>
