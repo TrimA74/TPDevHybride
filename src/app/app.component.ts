@@ -8,6 +8,9 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { HttpClient } from '@angular/common/http';
+
+import { RestProvider } from '../providers/rest/rest';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,13 +20,16 @@ export class MyApp {
 
   // make HelloIonicPage the root (or first) page
   rootPage = LoginPage;
+  private users:any;
   pages: Array<{title: string, component: any}>;
 
   constructor(
     public platform: Platform,
     public menu: MenuController,
     public statusBar: StatusBar,
-    public splashScreen: SplashScreen
+    public splashScreen: SplashScreen,
+    public http: HttpClient,
+    public restProvider: RestProvider
   ) {
     this.initializeApp();
 
@@ -32,6 +38,11 @@ export class MyApp {
       { title: 'Connexion', component: LoginPage },
       { title: 'My First List', component: ListPage }
     ];
+
+    this.restProvider.getData().then((data) => {
+      this.users = data;
+    });
+
   }
 
   initializeApp() {

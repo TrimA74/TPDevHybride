@@ -4,6 +4,9 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { ItemDetailsPage } from '../item-details/item-details';
 
+
+import { RestProvider } from '../../providers/rest/rest';
+
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html'
@@ -12,7 +15,11 @@ export class ListPage {
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  private users:any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public restProvider: RestProvider) {
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
 
@@ -24,7 +31,12 @@ export class ListPage {
         icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       });
     }
+    this.restProvider.getData().then((data) => {
+      this.users = data;
+    });
   }
+
+
 
   itemTapped(event, item) {
     this.navCtrl.push(ItemDetailsPage, {
