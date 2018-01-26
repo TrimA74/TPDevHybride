@@ -14,6 +14,7 @@ export class LoginPage {
 
 
   private users:any;
+  private notGood:any;
 
   constructor(public navController : NavController, public navParams: NavParams, public RestProvider : RestProvider) {
 
@@ -21,22 +22,23 @@ export class LoginPage {
      this. users = data;
     });
 
-
+    this.notGood = false;
 
   }
 
   doConnection(username, password) {
-    console.log('1');
     this.users.forEach((user) => {
       console.log(password);
       if(user.name == username && user.password == password)
       {
         console.log('wtf');
+        this.notGood;
         this.navController.setRoot(ListPage);
       }
 
 
     });
+    this.notGood = true;
 
   }
 }
